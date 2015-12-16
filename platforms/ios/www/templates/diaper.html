@@ -1,0 +1,44 @@
+<ion-view name="home-tab"> 
+	<ion-header-bar class="bar-positive">
+		<button class="button icon ion-checkmark-round" ng-click="insertDiaper()"></button>
+		<h1 class="title icon ion-fork"></h1>
+		<button class="button icon ion-ios-list-outline" ng-click="selectDiaper()"></button>
+	</ion-header-bar>	
+	<ion-content>
+		<div class="list">
+			<label class="item item-input item-select">
+				<div class="input-label">Diaper</div>
+				<select ng-model="diaperCategory" ng-change="changeDiaper(diaperCategory)">
+					<option value="wet">Wet</option>
+					<option value="poopy">Poopy</option>
+					<option value="wet_poopy">Wet+Poopy</option>
+					<option value="dry">Dry</option>
+				</select>
+			</label>
+		</div>
+
+		<formly-form model="formData" fields="formFields" form="mainInputForm">
+		</formly-form>
+
+		<script type="text/ng-template" id="inputDatePicker.html"> 
+		  <ion-item class="item-icon-right">
+		    <i ng-click="to.onclick()" 
+		       class="icon ion-ios-calendar-outline"></i>
+		    {{ model[options.key] | date : to.dateFormat }}
+		  </ion-item>
+		</script>
+
+		<script type="text/ng-template" id="templates/modalRecord.html">
+	      <ion-modal-view>
+	        <ion-header-bar class="bar bar-header bar-positive">
+	          <h1 class="title">Past Record</h1>
+	          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+	        </ion-header-bar>
+	        <ion-content class="padding">
+	          {{result}}
+	        </ion-content>
+	      </ion-modal-view>
+    	</script>
+			
+	</ion-content>
+</ion-view>

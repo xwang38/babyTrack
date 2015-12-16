@@ -1,0 +1,51 @@
+<ion-view> 	
+	<ion-header-bar class="bar-positive">
+		<button class="button icon ion-checkmark-round" ng-click="insertFood()"></button>
+		<h1 class="title icon ion-fork"></h1>
+		<button class="button icon ion-ios-list-outline" ng-click="selectFood()"></button>
+	</ion-header-bar>
+
+	<ion-content>
+
+		<div class="list">
+			<label class="item item-input item-select">
+				<div class="input-label">Food</div>
+				<select ng-model="foodCategory" ng-change="changeFoodC(foodCategory)">
+					<option ng-value="BreastFeeding">Breast Feeding</option>
+					<option ng-value="Formula">Formula</option>
+					<option ng-value="Solid">Solid</option>
+				</select>
+			</label>
+			<div class="item range range-positive">
+				<i class="icon ion-fork"></i>
+				<input type="range" id="rangeFoodIn" min="0" max="25" value="8" oninput="amountFoodIn.value=rangeFoodIn.value" ng-model="foodAmount" ng-change="changeFoodA(foodAmount)">
+				<output id="amountFoodIn" for="rangeFoodIn">8</output>
+				 oz
+			</div>
+		</div>
+		
+		<formly-form model="formData" fields="formFields" form="mainInputForm">
+		</formly-form>
+
+		<script type="text/ng-template" id="inputDatePicker.html"> 
+		  <ion-item class="item-icon-right">
+		    <i ng-click="to.onclick()" 
+		       class="icon ion-ios-calendar-outline"></i>
+		    {{ model[options.date] | date : to.dateFormat }}
+		  </food-item>
+		</script>
+
+		<script type="text/ng-template" id="templates/modalRecord.html">
+	      <ion-modal-view>
+	        <ion-header-bar class="bar bar-header bar-positive">
+	          <h1 class="title">Past Record</h1>
+	          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+	        </ion-header-bar>
+	        <ion-content class="padding">
+	          {{result}}
+	        </ion-content>
+	      </ion-modal-view>
+    	</script>
+
+	</ion-content>
+</ion-view>

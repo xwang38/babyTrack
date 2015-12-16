@@ -1,0 +1,41 @@
+<!--
+<ion-view view-title="SQLite">
+    <ion-content class="padding">
+      <script type="text/javascript">
+        var recognition = new SpeechRecognition();
+        recognition.onresult = function(event) {
+          if (event.results.length > 0) {
+            q.value = event.results[0][0].transcript;
+            q.form.submit();
+          }
+        }
+      </script>
+
+      <form action="http://www.google.com/search">
+        <input type="search" id="q" name="q" size=60>
+        <input type="button" value="Click to Speak" onclick="recognition.start()">
+      </form>
+    </ion-content>
+</ion-view>
+-->
+
+
+<ion-view view-title="SQLite">
+    <ion-content class="padding">
+        <div id="mic-animation-block" style="display:none;">
+            <div id="mycircle1" class="mycircle1">
+                <div id="mycircle2" class="mycircle2">
+                    <div id="mycircle3" class="mycircle3">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="button icon ion-ios-mic-outline" ng-click="sendVoice()" id="mic"></button>
+        <button class="button" ng-click="stopListening()"> stop listening</button>
+
+
+    </ion-content>
+</ion-view>
+
+    
